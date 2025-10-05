@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5cgl6xu3ctsd"]
+
+[ext_resource type="Script" uid="uid://cyiugqqq8ysjm" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://dj8v4bl0i1fbw" path="res://player/camera_fp.gd" id="2_rkbax"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkbax"]
+font_size = 25
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629744, 0)
+script = ExtResource("2_rkbax")
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+
+[node name="RayCast3D" type="RayCast3D" parent="head/Camera3D"]
+target_position = Vector3(0, 0, -3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PromptLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047000002
+anchor_top = 0.066
+anchor_right = 0.12900001
+anchor_bottom = 0.11400001
+offset_left = 637.12
+offset_top = 471.36
+offset_right = 673.84
+offset_bottom = 492.44
+label_settings = SubResource("LabelSettings_rkbax")

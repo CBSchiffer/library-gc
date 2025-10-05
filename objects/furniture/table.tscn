@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cec2hye8etmji"]
+
+[ext_resource type="ArrayMesh" uid="uid://bv3ulunt4gj4y" path="res://meshes/table.obj" id="1_npxc4"]
+[ext_resource type="Texture2D" uid="uid://12uswo2rbgtq" path="res://meshes/Cube.002.png" id="2_k5jq3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40hqe"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+albedo_texture = ExtResource("2_k5jq3")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_npxc4"]
+points = PackedVector3Array(-2.45511, 1.4359423, -0.759962, -2.216612, 0.323427, -0.49007732, -2.45511, 1.4359423, 0.759962, -2.45511, 1.52663, -0.759962, 0.35515094, 1.4359423, -0.759962, -2.216612, 0.323427, 0.48992854, 0.13068223, 0.323427, -0.49007732, -2.45511, 1.52663, 0.759962, 0.35515094, 1.4359423, 0.759962, 0.35515094, 1.52663, -0.759962, 0.13068223, 0.323427, 0.48992854, 0.35515094, 1.52663, 0.759962)
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+mesh = ExtResource("1_npxc4")
+surface_material_override/0 = SubResource("StandardMaterial3D_40hqe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_npxc4")

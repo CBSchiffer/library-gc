@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=4 uid="uid://bxyk686eqdio2"]
+
+[ext_resource type="Script" uid="uid://c56jy8jq1ccap" path="res://button_script.gd" id="1_0nrqi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bri14"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wdun"]
+albedo_color = Color(0.14901961, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pgxxe"]
+material = SubResource("StandardMaterial3D_8wdun")
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nrqi"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bri14"]
+_surfaces = [{
+"aabb": AABB(-0.523094, -0.273094, -0.523094, 1.046188, 0.546188, 1.046188),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("fekFv/rSiz596QU/fekFP/rSiz596QW/fekFP/rSiz596QU/fekFv/rSiz596QW/fekFv/rSi7596QU/fekFP/rSi7596QW/fekFP/rSi7596QU/fekFv/rSi7596QW/fekFP/rSiz596QU/fekFv/rSiz596QW/fekFP/rSiz596QW/fekFv/rSiz596QU/fekFP/rSi7596QU/fekFv/rSi7596QW/fekFP/rSi7596QW/fekFv/rSi7596QU/fekFP/rSiz596QU/fekFv/rSi7596QU/fekFv/rSiz596QU/fekFP/rSi7596QU/fekFP/rSiz596QW/fekFv/rSi7596QW/fekFv/rSiz596QW/fekFP/rSi7596QW//3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
+
+[node name="button" type="StaticBody3D"]
+script = ExtResource("1_0nrqi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bri14")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pgxxe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_0nrqi")
+mesh = SubResource("ArrayMesh_bri14")
